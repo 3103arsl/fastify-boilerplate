@@ -1,0 +1,36 @@
+{
+   "name": "kualiteev3",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "ts-node src/index.ts",
+      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "assert": "^2.0.0",
+      "dotenv": "^10.0.0",
+      "fastify": "^3.25.2",
+      "fastify-accepts": "^2.1.0",
+      "fastify-autoload": "^3.9.0",
+      "fastify-cors": "^6.0.2",
+      "fastify-decorators": "^3.10.0",
+      "fastify-formbody": "^5.2.0",
+      "fastify-multipart": "^5.2.1",
+      "mysql": "^2.14.1",
+      "path": "^0.12.7",
+      "reflect-metadata": "^0.1.13",
+      "typedi": "^0.10.0",
+      "typeorm": "0.2.41"
+   },
+   "devDependencies": {
+      "@types/node": "^8.0.29",
+      "nodemon": "^2.0.15",
+      "ts-node": "3.3.0",
+      "typescript": "3.3.3333"
+   }
+}
