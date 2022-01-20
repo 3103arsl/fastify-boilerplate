@@ -36,9 +36,14 @@ APP_ENV=development
 TYPEORM_CONNECTION=mysql
 ```
 
-Run the following command
+Install Dependancies
 ```
 npm install
+```
+
+Run Application
+```
+npm start
 ```
 
 ## Output
