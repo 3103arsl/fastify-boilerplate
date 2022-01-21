@@ -1,6 +1,6 @@
-import {Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, ManyToOne, JoinColumn} from "typeorm";
-import {User} from "./User";
-import {Base} from "./Base";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn} from "typeorm";
+import {User} from "./user";
+import {Base} from "./base";
 
 @Entity("projects")
 export class Project extends Base{

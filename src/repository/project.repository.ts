@@ -1,6 +1,6 @@
 import {EntityManager, EntityRepository, Repository} from "typeorm";
-import {Project} from "../entity/Project";
 import {BaseRepository} from "./base.repository";
+import {Project} from "../entity/project";
 
 @EntityRepository(Project)
 export class ProjectRepository extends Repository<Project>{

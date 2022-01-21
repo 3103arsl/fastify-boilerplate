@@ -1,6 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
-import {Base} from "./Base";
-import {Project} from "./Project";
+import {Base} from "./base";
+import {Project} from "./project";
 
 @Entity('users')
 export class User extends Base{

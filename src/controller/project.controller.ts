@@ -1,9 +1,9 @@
 import {Controller, DELETE, GET, PATCH, POST, PUT} from 'fastify-decorators';
-import {Project} from "../entity/Project";
-import {getCustomRepository, getRepository} from "typeorm";
+import {getCustomRepository} from "typeorm";
 import {ProjectRepository} from "../repository/project.repository";
 import {ProjectRequest} from "../request/project.request";
 import {FastifyReply, FastifyRequest} from "fastify";
+import {Project} from "../entity/project";
 
 @Controller({
     route: '/api/projects',
@@ -14,7 +14,7 @@ export default class ProjectController{
 
     @GET({ url: '/' })
     async indexHandler(request: FastifyRequest<any>, reply: FastifyReply<any>) {
-       // const projects = await Project.find();
+        //const projects = await Project.find();
         const repository = getCustomRepository(ProjectRepository);
         const projects = await repository.getAll();
         reply.code(200).send({data: projects});
