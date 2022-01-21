@@ -1,5 +1,4 @@
 import {EntityManager, EntityRepository, Repository} from "typeorm";
-import {BaseRepository} from "./base.repository";
 import {Project} from "../entity/project";
 
 @EntityRepository(Project)

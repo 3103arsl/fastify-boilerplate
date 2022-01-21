@@ -38,14 +38,6 @@ export default function(fastify, opts, next) {
     includeTypeScript: true,
   });
 
-  // This loads all plugins defined in services
-  // define your routes in one of these
-  fastify.register(AutoLoad, {
-    dir: path.join(__dirname, 'service'),
-    options: Object.assign({}, opts),
-    includeTypeScript: true,
-  });
-
   // Make sure to call next when done
   next();
 }
