@@ -3,8 +3,7 @@ import { validateEnvironment } from './validate-environment';
 import * as dotenv from 'dotenv';
 dotenv.config();
 validateEnvironment();
-import { createConnection, useContainer } from 'typeorm';
-import { Container } from 'typedi';
+import { createConnection } from 'typeorm';
 import fastify from 'fastify';
 import app from './app';
 
@@ -12,18 +11,16 @@ const server = fastify({
   logger: true,
 });
 
-//useContainer(Container);
 const start = async () => {
   let databaseConnection;
   try {
-
     databaseConnection = await createConnection({
       type: 'mysql',
-      host: "localhost",
+      host: process.env.DB_HOST,
 	  port: 3306,
-	  username: "root",
-	  password: "",
-	  database: "fastify",
+	  username: process.env.DB_USERNAME,
+	  password: process.env.DB_PASSWORD,
+	  database: process.env.DB_DATABASE,
       synchronize: true,
       logging: false,
       migrationsRun: false,
