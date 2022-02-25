@@ -3,6 +3,8 @@ import {ProjectRepository} from "../repository/project.repository";
 import {ProjectRequest} from "../request/project.request";
 import {FastifyReply, FastifyRequest} from "fastify";
 import {RepositoryService} from "../service/repository.service";
+import {preHandlerService} from "../service/preHandler.service";
+import {AuthPrehandler} from "../prehandler/auth.prehandler";
 
 @Controller({
     route: '/api/projects',
@@ -11,11 +13,14 @@ export default class ProjectController{
 
     private repository;
 
-    public constructor(private repositoryService: RepositoryService) {
+    public constructor(
+        private repositoryService: RepositoryService,
+        private preHandlerService: preHandlerService
+        ) {
          this.repository = this.repositoryService.getCustomRepository(ProjectRepository);
     }
 
-    @GET({ url: '/' })
+    @GET('/',  {preHandler: AuthPrehandler})
     async indexHandler(request: FastifyRequest<any>, reply: FastifyReply<any>) {
         const projects = await this.repository.then(repository => repository.getAll());
         reply.code(200).send({data: projects});

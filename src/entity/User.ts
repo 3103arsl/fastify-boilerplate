@@ -29,6 +29,9 @@ export class User extends Base{
     @Column()
     password: string;
 
+    @Column()
+    token: string;
+
     async setPassword(password: string) {
         //this.password = await hashPassword(password);
     }

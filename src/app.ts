@@ -4,16 +4,23 @@ import fastifyCors from 'fastify-cors';
 import fastifyAccepts from 'fastify-accepts';
 import fastifyFormBody from 'fastify-formbody';
 import fastifyMultipart from 'fastify-multipart';
+import fastifyAuth from 'fastify-auth';
 import { bootstrap } from 'fastify-decorators';
 import { resolve } from 'path';
 
 export default function(fastify, opts, next) {
   // TODO: (bdietz) - make this more locked down
   // https://github.com/fastify/fastify-cors
+
+
   fastify.register(fastifyCors);
   fastify.register(fastifyAccepts);
   fastify.register(fastifyFormBody);
   fastify.register(fastifyMultipart);
+  fastify.decorate('verifyUserAndPassword', (request, reply, done) => {
+    console.log('===================verifyUserAndPassword=========================');
+    done();
+  }).register(fastifyAuth);
   // origin: ['http://localhost:3000'],
   // credentials: true,
   // Place here your custom code!
